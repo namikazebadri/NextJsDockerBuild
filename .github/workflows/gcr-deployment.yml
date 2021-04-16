@@ -24,7 +24,7 @@ jobs:
       uses: RaccoonDev/push-docker-gcr@v1
       with:
         gcr_host: gcr.io
-        image_name: netxjs-app
+        image_name: nextjs-app
         image_tag: ${{ steps.branch_name.outputs.SOURCE_TAG_DOCKER_IMAGE }}
       env:
         GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}

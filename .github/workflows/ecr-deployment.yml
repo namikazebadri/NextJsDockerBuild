@@ -20,7 +20,7 @@ jobs:
         echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
 
     # Deploying image to Elastic Container Registry
-    - run: docker build . --tag netxjs-app:${{ steps.branch_name.outputs.SOURCE_TAG_DOCKER_IMAGE }}
+    - run: docker build . --tag nextjs-app:${{ steps.branch_name.outputs.SOURCE_TAG_DOCKER_IMAGE }}
     - name: Push to ECR
       id: ecr
       uses: jwalton/gh-ecr-push@v1
@@ -28,7 +28,7 @@ jobs:
         access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         region: ap-southeast-1
-        image: netxjs-app:${{ steps.branch_name.outputs.SOURCE_TAG_DOCKER_IMAGE }}
+        image: nextjs-app:${{ steps.branch_name.outputs.SOURCE_TAG_DOCKER_IMAGE }}
 
     # Notify engineers via slack
     - name: Notify slack

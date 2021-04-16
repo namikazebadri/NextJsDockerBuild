@@ -32,7 +32,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: namikazebadri/netxjs-app:${{ steps.branch_name.outputs.SOURCE_TAG_DOCKER_IMAGE }}
+        tags: namikazebadri/nextjs-app:${{ steps.branch_name.outputs.SOURCE_TAG_DOCKER_IMAGE }}
 
     # Outputting image digest from push
     - name: Image digest
@@ -48,7 +48,7 @@ jobs:
         port: 22
         script: |
           whoami
-          docker run -d -p 3000:3000 --name netxjs-app namikazebadri/netxjs-app:${{ steps.branch_name.outputs.SOURCE_TAG_DOCKER_IMAGE }}
+          docker run -d -p 3000:3000 --name nextjs-app namikazebadri/nextjs-app:${{ steps.branch_name.outputs.SOURCE_TAG_DOCKER_IMAGE }}
 
     # Notify engineers via slack
     - name: Notify slack
