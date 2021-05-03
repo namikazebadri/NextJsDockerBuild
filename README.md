@@ -1,6 +1,6 @@
 # NextJs Docker Image
 
-Build docker image for NextJs application
+Build docker image for NextJs application.
 
 ## Build Image
 To build image run this command (__change the tag name & version with your preferred tag name & version__).
